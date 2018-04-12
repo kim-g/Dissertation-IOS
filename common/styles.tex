@@ -77,16 +77,26 @@
 }
 
 %%% Схемы %%%
-\setfloatadjustment{scheme}{%
-	\setlength{\abovecaptionskip}{0pt}   % Отбивка над подписью
-	\setlength{\belowcaptionskip}{0pt}   % Отбивка под подписью
-	\precaption{} % всегда идет перед подписью или \legend
-	\captionnamefont{\normalfont\normalsize} % Шрифт надписи «Рисунок #»; также определяет шрифт у \legend
-	\captiondelim{\figlabelsep} % разделитель идентификатора с номером от наименования
-	\captionstyle[\centering]{\centering} % Центрирование подписей, заданных командой \caption и \legend
-	\captiontitlefont{\normalfont\normalsize} % Шрифт с текстом подписи
-	\postcaption{} % всегда идет после подписи или \legend, и с новой строки
-}
+\newcommand{\schemecom}{\par\refstepcounter{schemecount}%
+	\schemename~\arabic{chapter}.\arabic{schemecount}}
+\renewcommand{\theschemecount}{\thechapter.\arabic{schemecount}}
+
+\newenvironment{scheme}{
+	\centering\schemecom \\* }
+
+{}
+
+
+%\setfloatadjustment{scheme}{%
+%	\setlength{\abovecaptionskip}{0pt}   % Отбивка над подписью
+%	\setlength{\belowcaptionskip}{0pt}   % Отбивка под подписью
+%	\precaption{} % всегда идет перед подписью или \legend
+%	\captionnamefont{\normalfont\normalsize} % Шрифт надписи «Рисунок #»; также определяет шрифт у \legend
+%	\captiondelim{\figlabelsep} % разделитель идентификатора с номером от наименования
+%	\captionstyle[\centering]{\centering} % Центрирование подписей, заданных командой \caption и \legend
+%	\captiontitlefont{\normalfont\normalsize} % Шрифт с текстом подписи
+%	\postcaption{} % всегда идет после подписи или \legend, и с новой строки
+%}
 
 %%% Подписи подрисунков %%%
 \newsubfloat{figure} % Включает возможность использовать подрисунки у окружений figure
@@ -98,12 +108,12 @@
 %\subcaptionsize{\fontsize{12pt}{13pt}\selectfont} % объявляем шрифт 12pt для использования в подписях, тут же надо интерлиньяж объявлять, если не наследуется
 
 %%% Подписи схем %%%
-\newsubfloat{scheme} % Включает возможность использовать подрисунки у окружений figure
-\renewcommand{\thesubfigure}{\asbuk{subfigure}}           % Буквенные номера подрисунков
-\subcaptionsize{\normalsize} % Шрифт подписи названий подрисунков (не отличается от основного)
-\subcaptionlabelfont{\normalfont}
-\subcaptionfont{\!\!) \normalfont} % Вот так тут добавили скобку после буквы.
-\subcaptionstyle{\centering}
+%\newsubfloat{scheme} % Включает возможность использовать подрисунки у окружений figure
+%\renewcommand{\thesubfigure}{\asbuk{subfigure}}           % Буквенные номера подрисунков
+%\subcaptionsize{\normalsize} % Шрифт подписи названий подрисунков (не отличается от основного)
+%\subcaptionlabelfont{\normalfont}
+%\subcaptionfont{\!\!) \normalfont} % Вот так тут добавили скобку после буквы.
+%\subcaptionstyle{\centering}
 %\subcaptionsize{\fontsize{12pt}{13pt}\selectfont} % объявляем шрифт 12pt для использования в подписях, тут же надо интерлиньяж объявлять, если не наследуется
 
 %%% Настройки гиперссылок %%%
