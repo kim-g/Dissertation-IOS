@@ -34,6 +34,7 @@
 \ifnumequal{\value{headingalign}}{0}{% выравнивание заголовков в тексте
     \newcommand{\hdngalign}{\centering}                % по центру
     \newcommand{\hdngaligni}{}% по центру
+    \newcommand{\chaphdngalign}{}
     \setlength{\otstuplen}{0pt}
 }{%
     \newcommand{\hdngalign}{}                 % по левому краю
@@ -125,13 +126,13 @@
 
 \chapterstyle{thesisgost}
 
-\setsecheadstyle{\basegostsectionfont\hdngalign}
+\setsecheadstyle{\basegostsectionfont\chaphdngalign}
 \setsecindent{\otstuplen}
 
-\setsubsecheadstyle{\basegostsectionfont\hdngalign}
+\setsubsecheadstyle{\basegostsectionfont\chaphdngalign}
 \setsubsecindent{\otstuplen}
 
-\setsubsubsecheadstyle{\basegostsectionfont\hdngalign}
+\setsubsubsecheadstyle{\basegostsectionfont\chaphdngalign}
 \setsubsubsecindent{\otstuplen}
 
 \sethangfrom{\noindent #1} %все заголовки подразделов центрируются с учетом номера, как block 
